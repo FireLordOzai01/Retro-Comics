@@ -1,0 +1,9 @@
+export const ADD_USER = 'ADD_USER';
+export const LOGIN = 'LOGIN';
+export const GET_BOOKS = 'GET_BOOKS';
+export const GET_FEATURED = 'GET_FEATURED';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const REMOVE_FEATURED = 'REMOVE_FEATURED';
+export const ADD_FEATURED = 'ADD_FEATURED';
+export const SELECTED_BOOK = 'SELECTED_BOOK';

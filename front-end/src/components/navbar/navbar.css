@@ -1,0 +1,42 @@
+.nav-container {
+    background-color: steelblue;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-name {
+    display: flex;
+    width: 150px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    margin-right: 50px;
+    color: white;
+    text-decoration: none !important;
+    display: inline;
+}
+
+nav a:hover {
+    color: black;
+}
+
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 25px;
+    margin-left: 2px;
+}

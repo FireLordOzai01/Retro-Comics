@@ -1,0 +1,18 @@
+ .comic-cover {
+    height: 600px;
+}
+
+.title {
+    margin: 50px auto 20px auto;
+}
+
+.left-col {
+    margin-top: 20px;
+    border-right: 1px solid steelblue;
+    display: flex;
+    justify-content: center;
+}
+
+.right-col{
+    margin-top: auto;
+}

@@ -1,0 +1,11 @@
+#rowImg-container img{
+    width: 100%;
+    height: 400px;
+}
+.more-book {
+    margin-top: 50px;
+}
+
+.more-book img {
+    height: 200px;
+}
