@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { getUser } from './../../actions/users-actions'
+import { getUser } from '../../actions/users-actions'
+import './login-form.css';
 
 class LogInForm extends Component {
     state = {
@@ -16,13 +18,10 @@ class LogInForm extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h2>Log In</h2>
-                <div className="dropdown">
-                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Log In
-                    </a>
-                    <div className="dropdown-menu">
+            <div className="container login-container">
+                <div className="drop-down">
+                    <h1>Login</h1>
+                    <div className="drop-down-menu">
                         <form >
                             <div className="form-group">
                                 <label>Email</label>
@@ -45,9 +44,11 @@ class LogInForm extends Component {
                                 onClick={(e) => this.onLogIn(e)}>Log In</button>
                         </form>
                     </div>
+                    <div>
+                        <h3>Not a member?</h3>
+                        <h3 className="singup-link"><Link to='/signup'>Sign Up!</Link></h3>
+                    </div>
                 </div>
-
-
             </div>
         );
     }

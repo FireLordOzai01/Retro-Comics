@@ -9,3 +9,11 @@
 .more-book img {
     height: 200px;
 }
+
+.more-book img:hover {
+    cursor: pointer;
+}
+
+.morebooks-container{
+    
+}

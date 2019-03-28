@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { addUser } from './../../actions/users-actions'
+import { addUser } from '../../actions/users-actions'
+import './signUp-form.css';
 
 class SignUpForm extends Component {
     state = {
         fName: '',
         lName: '',
         username: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
     }
 
     onSignUp = e => {
@@ -24,8 +27,8 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h2>Sign Up</h2>
+            <div className="container signup-container">
+                <h1>Sign Up</h1>
                 <form>
                     <div className="form-group">
                         <label>First Name</label>
@@ -59,10 +62,21 @@ class SignUpForm extends Component {
                             value={this.state.password}
                             onChange={(e) => this.setState({ password: e.target.value })} required />
                     </div>
+                    <div className="form-group">
+                        <input type="password"
+                            className="form-control"
+                            placeholder="Confirm password"
+                            value={this.state.confirmPassword}
+                            onChange={(e) => this.setState({ confirmPassword: e.target.value })} required />
+                    </div>
                     <button
                         className="btn btn-outline-primary float-right"
                         onClick={(e) => this.onSignUp(e)}>Sign Up!</button>
                 </form>
+                <div>
+                    <h3>Already a member?</h3>
+                    <h3 className="login-link"><Link to='/login'>Log In</Link></h3>
+                </div>
             </div>
         );
     }

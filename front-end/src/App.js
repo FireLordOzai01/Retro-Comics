@@ -8,6 +8,8 @@ import Admin from './components/admin/admin';
 import MoreBooks from './components/moreBooks/moreBooks';
 import Book from './book/book';
 import Cart from './components/cart/cart'
+import LogInForm  from './components/logIn/logIn-form';
+import SignUpForm from './components/signup/signUp-form';
 
 class App extends Component {
 
@@ -21,6 +23,8 @@ class App extends Component {
           <Route path='/admin' render={() => <Admin />} />
           <Route path='/cart' render={() => <Cart />} />
           <Route path='/book/:bookId' render={(renderProps) => <Book book={renderProps}/>} />
+          <Route path='/login' render={() => <LogInForm />} />
+          <Route path='/signup' render={() => <SignUpForm/>}/>
         </Switch>
       </div>
     );

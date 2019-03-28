@@ -70,7 +70,7 @@ class MoreBooksList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="morebooks-container">
                 {this.state.redirect
                     ?
                     this.onRedirect(this.state.selectedBook)
@@ -83,7 +83,7 @@ class MoreBooksList extends Component {
                             return (
                                 <div key={index} className="more-book">
                                     <h5>{b.title}</h5>
-                                    <img onClick={() => this.setSelectedBook(b)}
+                                    <img className="comic-image" onClick={() => this.setSelectedBook(b)}
                                         src={`${b.images[0].path}.jpg`} alt="comic book cover" />
                                     <p>{b.description}</p>
                                     <button className="btn btn-outline-primary btn-sm"

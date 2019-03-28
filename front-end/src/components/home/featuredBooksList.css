@@ -15,20 +15,3 @@
     transform: scale(1.05);
 }
 
-#stackImg-container {
-    position:absolute;
-}
-
-#stackImg-container img{
-    width: 100vw;
-    height: 400px;
-}
-
-#logo-container{
-    position: relative;
-}
-
-#home-logo-name{
-    width: 50%;
-    margin-left: 25%;
-}
