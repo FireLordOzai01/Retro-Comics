@@ -1,23 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Animated } from 'react-animated-css';
+
 import retroLogo from './../../images/retroLogo.png';
 import './navbar.css';
 
 const Navbar = (props) => {
     return (
         <div className="nav-container">
-            <img className="logo-name" src={retroLogo} alt="" />
+            <Animated animationIn="bounceInLeft">
+                <img className="logo-name" src={retroLogo} alt="" />
+            </Animated>
             <nav>
-                <Link to='/'>Home</Link>
-                <Link to='/more-books'>More Books</Link>
-                <Link to='/login'> Login</Link>
-                <Link to='/cart'><i className="fas fa-shopping-cart">
-                    {props.cart.length > 0
-                        ? <span className="badge badge-light">{props.cart.length}</span>
-                        : <span className="badge badge-light"></span>}
-                </i>
-                </Link>
+                <Animated animationIn="bounceInRight">
+                    <Link to='/'>Home</Link>
+                    <Link to='/more-books'>More Books</Link>
+                    <Link to='/login'> Login</Link>
+                    <Link to='/cart'><i className="fas fa-shopping-cart">
+                        {props.cart.length > 0
+                            ? <span className="badge badge-light">{props.cart.length}</span>
+                            : <span className="badge badge-light"></span>}
+                    </i>
+                    </Link>
+                </Animated>
             </nav>
         </div>
     )

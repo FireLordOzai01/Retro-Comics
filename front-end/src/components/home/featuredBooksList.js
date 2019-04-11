@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Animated } from 'react-animated-css';
+
 import './featuredBooksList.css';
 
 import { getFeatured, addToCart, removeFeatured, setSelectedBook } from './../../actions/users-actions'
@@ -54,24 +56,26 @@ class FeaturedBookList extends Component {
     render() {
         return (
             this.state.redirect
-            ?
-            this.onRedirect(this.state.selectedBook)
-            :
-            <div className="featured-bookList row">
-                {this.props.featuredBooks.map((b, index) => {
-                    return (
-                        <div key={index} className="featured-book col-4"> 
-                            <img onClick={() => this.setSelectedBook(b)} src={`${b.images[0].path}.jpg`} alt="comic book cover" />
-                            <p>{b.title}</p>
-                            {this.findPrice(b)}
-                            <button className="btn btn-outline-primary btn-sm"
-                                    onClick={() => this.addToCart(b)}>Add to cart</button>
-                            <button className="btn btn-outline-danger btn-sm ml-3"
-                                    onClick={() => this.onRemoveFeatured(b.id)}>X</button>
-                        </div>
-                    )
-                })}
-            </div>
+                ?
+                this.onRedirect(this.state.selectedBook)
+                :
+                <Animated animationIn="bounceInUp">
+                    <div className="featured-bookList row">
+                        {this.props.featuredBooks.map((b, index) => {
+                            return (
+                                <div key={index} className="featured-book col-4">
+                                    <img onClick={() => this.setSelectedBook(b)} src={`${b.images[0].path}.jpg`} alt="comic book cover" />
+                                    <p>{b.title}</p>
+                                    {this.findPrice(b)}
+                                    <button className="btn btn-outline-primary btn-sm"
+                                        onClick={() => this.addToCart(b)}>Add to cart</button>
+                                    <button className="btn btn-outline-danger btn-sm ml-3"
+                                        onClick={() => this.onRemoveFeatured(b.id)}>X</button>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </Animated>
         );
     }
 }

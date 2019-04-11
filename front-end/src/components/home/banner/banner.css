@@ -4,7 +4,7 @@
 
 #stackImg-container img{
     width: 100vw;
-    height: 400px;
+    height: 300px;
 }
 
 #logo-container{
@@ -12,6 +12,6 @@
 }
 
 #home-logo-name{
-    width: 50%;
+    width: 40%;
     margin-left: 25%;
 }

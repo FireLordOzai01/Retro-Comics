@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Animated } from 'react-animated-css';
+
 import { getBooks, addToCart, getFeatured, removeFeatured, addFeatured, setSelectedBook } from './../../actions/users-actions';
 import './moreBooksList.css';
 
@@ -10,7 +12,9 @@ class MoreBooksList extends Component {
     state = {
         total: 0,
         selectedBook: {},
-        redirect: false
+        redirect: false,
+        pagesStart: 0,
+        pagesEnd: 5
     }
 
     componentDidMount() {
@@ -68,6 +72,20 @@ class MoreBooksList extends Component {
         return <Redirect to={`/book/${book.title}`} />
     }
 
+    morePages = () => {
+        this.setState({
+            pagesStart: this.state.pagesStart + 5,
+            pagesEnd: this.state.pagesEnd + 5
+        })
+    }
+
+    lessPages = () => {
+        this.setState({
+            pagesStart: this.state.pagesStart - 5,
+            pagesEnd: this.state.pagesEnd - 5
+        })
+    }
+
     render() {
         return (
             <div className="morebooks-container">
@@ -77,10 +95,13 @@ class MoreBooksList extends Component {
                     :
                     this.props.books.length < 1
                         ?
-                        <img src={loadingGif} alt="loading" />
+                        <div className="loading-gif-container">
+                            <img className="loading-gif" src={loadingGif} alt="loading" />
+                        </div>
                         :
                         this.props.books.map((b, index) => {
                             return (
+                                index > this.state.pagesStart && index <= this.state.pagesEnd &&
                                 <div key={index} className="more-book">
                                     <h5>{b.title}</h5>
                                     <img className="comic-image" onClick={() => this.setSelectedBook(b)}
@@ -98,6 +119,10 @@ class MoreBooksList extends Component {
                                 </div>
                             )
                         })}
+                <div className="more-less-container">
+                    {this.state.pagesStart > 0 ? <h5 className="less-btn" onClick={() => this.lessPages()}>&larr; Back</h5> : ""}
+                    <h5 className="more-btn" onClick={() => this.morePages()}>Next &rarr;</h5>
+                </div>
             </div>
         );
     }
